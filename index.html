@@ -48,11 +48,22 @@
                 }
 
 
-            });
+            });//addEventlistener
+            window.addEventListener('devicemotion', function(event){
+ 
+                var xacceleration = Math.round(event.acceleration.x*10)/10;
+               
+                var xneigung =  Math.round(event.accelerationIncludingGravity.x*10)/10;
+               
+                padlx = padlx - xneigung;
+ 
+ 
+        });
+           
+            timer = setInterval(draw, 5);
             draw();
-
         }
-
+        
         function ball(x, y, r) {
             context.fillStyle = "#00A3B1";
             context.beginPath();
